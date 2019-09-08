@@ -1,0 +1,24 @@
+{
+  "name": "Sprinks",
+  "version": "0.0.1",
+  "slug": "sprinks",
+  "description": "Smart Irrigation Controller for Kubee Grow Assistant.",
+  "webui": "http://[HOST]:[PORT:8080]/",
+  "arch": [ "amd64", "i386", "armv7", "armhf" ],
+  "image": "kubeeapp/sprinks-{arch}",
+  "url": "https://github.com/kubeeapp/sprinks",
+  "startup": "application",
+  "boot": "auto",
+  "homeassistant_api": true,
+  "apparmor": true,
+  "timeout": 60,
+  "ports": {
+    "8080/tcp": 8080
+  },
+  "ports_description": {
+    "8080/tcp": "Web interface (Admin is located at /admin)"
+  },
+  "map": [ "ssl" ],
+  "options": {},
+  "schema": {}
+}
