@@ -30,7 +30,7 @@ RUN apk --no-cache add \
     ln -s /data/nvm.dat && \
     ln -s /data/ifkey.txt && \
     ln -s /data/logs
-COPY --from=build-img /OpenSprinkler-Firmware-master/OpenSprinkler /OpenSprinkler/OpenSprinkler
+COPY --from=build-img /Sprinks-Firmware-master/OpenSprinkler /OpenSprinkler/OpenSprinkler
 WORKDIR /OpenSprinkler
 
 #-- Logs and config information go into the volume on /data
