@@ -23,15 +23,15 @@ FROM base-img
 RUN apk --no-cache add \
       libstdc++ \
     && \
-    mkdir /Sprinks && \
+    mkdir /OpenSprinkler && \
     mkdir -p /data/logs && \
-    cd /Sprinks && \
+    cd /OpenSprinkler && \
     ln -s /data/stns.dat && \
     ln -s /data/nvm.dat && \
     ln -s /data/ifkey.txt && \
     ln -s /data/logs
-COPY --from=build-img /Sprinks-Firmware-master/Sprinks /Sprinks/Sprinks
-WORKDIR /Sprinks
+COPY --from=build-img /OpenSprinkler-Firmware-master/OpenSprinkler /OpenSprinkler/OpenSprinkler
+WORKDIR /OpenSprinkler
 
 #-- Logs and config information go into the volume on /data
 VOLUME /data
