@@ -10,27 +10,28 @@ RUN apk --no-cache add \
       g++ \
       unzip \
       wget
-RUN wget https://github.com/OpenSprinkler/OpenSprinkler-Firmware/archive/master.zip && \
+RUN wget https://github.com/kubeeapp/Sprinks-Firmware/archive/master.zip && \
+#RUN wget https://github.com/OpenSprinkler/OpenSprinkler-Firmware/archive/master.zip && \
     unzip master.zip && \
-    cd /OpenSprinkler-Firmware-master && \
+    cd /Sprinks-Firmware-master && \
     ./build.sh -s ospi
 
-
+#https://github.com/kubeeapp/Sprinks-Firmware/archive/master.zip
 
 ########################################
 FROM base-img
 RUN apk --no-cache add \
       libstdc++ \
     && \
-    mkdir /OpenSprinkler && \
+    mkdir /Sprinks && \
     mkdir -p /data/logs && \
-    cd /OpenSprinkler && \
+    cd /Sprinks && \
     ln -s /data/stns.dat && \
     ln -s /data/nvm.dat && \
     ln -s /data/ifkey.txt && \
     ln -s /data/logs
-COPY --from=build-img /OpenSprinkler-Firmware-master/OpenSprinkler /OpenSprinkler/OpenSprinkler
-WORKDIR /OpenSprinkler
+COPY --from=build-img /Sprinks-Firmware-master/Sprinks /Sprinks/Sprinks
+WORKDIR /Sprinks
 
 #-- Logs and config information go into the volume on /data
 VOLUME /data
