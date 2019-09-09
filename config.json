@@ -1,17 +1,17 @@
 {
   "name": "Kubee Sprinks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "slug": "kubee-sprinks",
   "description": "Smart Irrigation Controller for Kubee Grow Assistant, Hassio Add-on.",
-  "webui": "http://[HOST]:[PORT:8180]/",
+  "webui": "[PROTO:ssl]://[HOST]:[PORT:8080]",
   "ingress": true,
-  "ingress_port": 8080,
+  "ingress_port": 80,
   "startup": "services",
-  "panel_icon": "mdi:flower-poppy",
+  "panel_icon": "mdi:sprinkler-variant",
   "homeassistant": "0.92.0b2",
   "arch": [ "amd64", "i386", "armv7", "armhf" ],
   "image": "kubeeapp/sprinks-{arch}",
-  "url": "https://github.com/kubeeapp/kubee-sprinks",
+  "url": "https://github.com/kubeeapp/Hassio-Add-ons/tree/master/kubee-sprinks",
   "boot": "auto",
   "homeassistant_api": true,
   "hassio_api": true,
@@ -21,10 +21,10 @@
   "apparmor": true,
   "timeout": 60,
   "ports": {
-    "8180/tcp": 8080
+    "8080/tcp": 80
   },
   "ports_description": {
-    "8180/tcp": "Web interface (Admin is located at /admin)"
+    "8080/tcp": "Web interface"
   },
   "options": {
     "ssl": true,
