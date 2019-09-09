@@ -1,10 +1,10 @@
 FROM resin/raspberrypi3-alpine as base-img
 
 
-
 ########################################
 FROM base-img as build-img
 RUN apk --no-cache add \
+      jq \
       bash \
       ca-certificates \
       g++ \
@@ -21,6 +21,7 @@ RUN wget https://github.com/kubeeapp/Sprinks-Firmware/archive/master.zip && \
 ########################################
 FROM base-img
 RUN apk --no-cache add \
+    jq \
     libstdc++ \
     && \
     mkdir /OpenSprinkler && \
@@ -34,9 +35,12 @@ COPY --from=build-img /Sprinks-Firmware-master/OpenSprinkler /OpenSprinkler/Open
 WORKDIR /OpenSprinkler
 
 #-- Logs and config information go into the volume on /data
-VOLUME ./sprinks /data
+VOLUME /data /data
+
 
 #-- OpenSprinkler interface is available on 8080
 EXPOSE 8080 80
+
+LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 
 CMD [ "./OpenSprinkler" ]
