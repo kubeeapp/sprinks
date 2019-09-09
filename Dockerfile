@@ -21,7 +21,7 @@ RUN wget https://github.com/kubeeapp/Sprinks-Firmware/archive/master.zip && \
 ########################################
 FROM base-img
 RUN apk --no-cache add \
-      libstdc++ \
+    libstdc++ \
     && \
     mkdir /OpenSprinkler && \
     mkdir -p /data/logs && \
