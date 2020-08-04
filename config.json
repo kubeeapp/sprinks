@@ -11,7 +11,7 @@
   "homeassistant": "0.92.0b2",
   "arch": [ "amd64", "i386", "armv7", "armhf" ],
   "image": "kubeeapp/sprinks-{arch}",
-  "url": "https://github.com/kubeeapp/Hassio-Add-ons/tree/master/kubee-sprinks",
+  "url": "https://github.com/kubeeapp/kubee-addons/tree/master/kubee-sprinks",
   "boot": "auto",
   "homeassistant_api": true,
   "hassio_api": true,
